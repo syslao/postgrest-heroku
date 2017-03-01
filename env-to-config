@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#available config options
+config_settings=(
+  db-uri
+  db-schema
+  db-anon-role
+)
+
+for conf in "${config_settings[@]}"; do
+  var="POSTGREST_${conf^^/-/_}"
+  val="${!var:-}"
+  if [ "$val" ]; then
+    echo "${conf}=${val}" >> /etc/postgrest.conf
+  fi
+done
+
+exec "$@"
