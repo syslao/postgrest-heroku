@@ -5,6 +5,14 @@ config_settings=(
   db-uri
   db-schema
   db-anon-role
+  db-pool
+  server-host
+  server-port
+  server-proxy-url
+  jwt-secret
+  secret-is-base64
+  max-rows
+  pre-request
 )
 
 for conf in "${config_settings[@]}"; do
